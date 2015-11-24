@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+<html>
+	<head>
+		<title>Listar Cargos</title>
+	</head>
+	{% block content %}
+	<body>
+	
+	 <H2> Listar Cargo </h2>
+		<br/>
+		<a  href="/cargos/crear" class="btn btn-primary" > Nuevo </a>
+		<a  href="/" class="btn btn-default" > Cancelar </a>
+		<br/><br/>
+		<table class="table"><tr class="active">
+		    <th>Id</th>
+		    <th>Tipo de Cargo </th>
+		    <th>Salario </th>
+		    <th>Turno </th>
+		    <th>Rango </th>
+		    <th>Email</th>
+		    <th>Descuento</th>
+		  </tr> 
+		{% for cgo in cargos %}
+		 <tr>
+		   <td>
+		   	<a href="#">{{cgo.idCargo}}</a> 
+		   </td>
+		   <td>
+		    {{cgo.tipo}}
+		   </td>
+		   <td>
+		   	{{cgo.salario}}
+		   </td>
+		   <td>
+            {{cgo.turno}}
+           </td>	
+           <td>
+            {{cgo.rango}}
+           </td>
+           <td>
+            {{cgo.email}}
+           </td>
+           <td>
+            {{cgo.descuento}}
+           </td>
+		 </tr>
+		{% endfor %}
+	   </table>
+		<hr>
+		<h2>Total  = {{total}}</h2>
+		</body>
+	{% endblock %}
+</html>

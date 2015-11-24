@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+<html>
+	<head>
+		<title>Listar Consumos</title>
+	</head>
+	{% block content %}
+	<body>
+	
+	 <H2> Listar Consumos </h2>
+		<br/>
+		<a  href="/consumos/crear" class="btn btn-primary" > Nuevo </a>
+		<a  href="/" class="btn btn-default" > Cancelar </a>
+		<br/><br/>
+		<table class="table"><tr class="active">
+		    <th>Id</th>
+		    <th>Id del Empleado </th>
+		    <th>Fecha </th>
+		    <th>Hora </th>
+		    <th>Descripcion Consumo </th>
+		    <th>Valor del Consumo</th>
+		  </tr> 
+		{% for con in consumos %}
+		 <tr>
+		   <td>
+		   	<a href="#">{{con.idConsumo}}</a> 
+		   </td>
+		   <td>
+		    {% if con.idEmpleado  %} 
+		     	{{con.idEmpleado}}
+		    {% endif %}
+		   </td>
+		   <td>
+		   	{{con.fecha}}
+		   </td>
+		   <td>
+            {{con.hora}}
+           </td>	
+           <td>
+            {{con.descripcionConsumo}}
+           </td>
+           <td>
+            {{con.valorConsumo}}
+           </td>
+		 </tr>
+		{% endfor %}
+	   </table>
+		<hr>
+		<h2>Total  = {{total}}</h2>
+		</body>
+	{% endblock %}
+</html>

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+<html>
+	<head>
+		<title>Listar Empleados</title>
+	</head>
+	{% block content %}
+	<body>
+	
+	 <H2> Listar Empleado </h2>
+		<br/>
+		<a  href="/empleados/crear" class="btn btn-primary" > Nuevo </a>
+		<a  href="/" class="btn btn-default" > Cancelar </a>
+		<br/><br/>
+		<table class="table"><tr class="active">
+		    <th>Id Rol</th>
+		    <th>Nombre </th>
+		   
+		  </tr> 
+		{% for emp in empleados %}
+		 <tr>
+		   <td>
+		   	<a href="#">{{emp.idRol}}</a> 
+		   </td>
+		   <td>
+		    {% if emp.nombre  %} 
+		     	{{emp.nombre}}
+		    {% endif %}
+		    
+		   </td>
+		   	
+		 </tr>
+		{% endfor %}
+	   </table>
+		<hr>
+		<h2>Total  = {{total}}</h2>
+		</body>
+	{% endblock %}
+</html>
